@@ -24,14 +24,14 @@ const getAdmin = async(req, res) => {
 }
 
 const createAdmin = async(req, res) => {
-    const {nom, prenom, adresse, email, telephone, mdp, id_admin} = req.body
+    const {nom, prenom, adresse, email, telephone, mdp,role } = req.body
 
     //add document to database
     try {
-        const admin = await Admin.create({nom, prenom, adresse, email, telephone, mdp, id_admin})
+        const admin = await Admin.create({nom, prenom, adresse, email, telephone, mdp, role})
         res.status(200).json(admin)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(500).json({error: error.message})
     }
 }
 

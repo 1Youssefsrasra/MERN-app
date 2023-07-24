@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const User= require('./userModel')
 
 const adminSchema= new Schema({
-    id_admin: {type: String, required: true}
+    role: { type: String, default: 'admin' }
 }, {timestamps: true })
 
 //heritage

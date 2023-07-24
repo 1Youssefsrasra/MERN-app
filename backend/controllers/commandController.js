@@ -24,14 +24,14 @@ const getCommand = async(req, res) => {
 }
 
 const createCommand= async(req, res) => {
-    const {numCom,dateCom} = req.body
+    const {numCom, products, dateCom} = req.body
 
     //add document to database
     try {
-        const command = await Command.create({numCom,dateCom})
+        const command = await Command.create({numCom, products, dateCom})
         res.status(200).json(command)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(500).json({error: error.message})
     }
 }
 

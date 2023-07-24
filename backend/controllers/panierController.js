@@ -24,14 +24,14 @@ const getPanier = async(req, res) => {
 }
 
 const createPanier = async(req, res) => {
-    const {num_panier,quantite,total_price} = req.body
+    const {num_panier,quantite, products, total_price} = req.body
 
     //add document to database
     try {
-        const panier = await Panier.create({num_panier,quantite,total_price})
+        const panier = await Panier.create({num_panier,quantite, products, total_price})
         res.status(200).json(panier)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(500).json({error: error.message})
     }
 }
 

@@ -31,7 +31,7 @@ const createMan = async(req, res) => {
         const men = await Men.create({nomProd})
         res.status(200).json(men)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(500).json({error: error.message})
     }
 }
 

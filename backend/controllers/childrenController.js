@@ -32,7 +32,7 @@ const createChild = async(req, res) => {
         const child = await Children.create({nomProd})
         res.status(200).json(child)
     } catch (error) {
-        res.status(400).json({error: error.message})
+        res.status(500).json({error: error.message})
     }
 }
 

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const User= require('./userModel')
 
 const clientSchema= new Schema({
-    id_client: {type: String, required: true}
+    role: { type: String, default: 'client' }
 }, {timestamps: true })
 
 //heritage
